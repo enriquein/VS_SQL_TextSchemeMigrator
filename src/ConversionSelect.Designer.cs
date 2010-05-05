@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnCopySettings = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.lblProcessingStatus = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,11 +132,23 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
+            // lblProcessingStatus
+            // 
+            this.lblProcessingStatus.AutoSize = true;
+            this.lblProcessingStatus.Location = new System.Drawing.Point(222, 137);
+            this.lblProcessingStatus.Name = "lblProcessingStatus";
+            this.lblProcessingStatus.Size = new System.Drawing.Size(121, 13);
+            this.lblProcessingStatus.TabIndex = 5;
+            this.lblProcessingStatus.Text = "Processing, please wait.";
+            this.lblProcessingStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblProcessingStatus.Visible = false;
+            // 
             // ConversionSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 139);
+            this.ClientSize = new System.Drawing.Size(374, 157);
+            this.Controls.Add(this.lblProcessingStatus);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnCopySettings);
             this.Controls.Add(this.groupBox1);
@@ -163,6 +176,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCopySettings;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblProcessingStatus;
 
     }
 }

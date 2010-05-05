@@ -101,11 +101,25 @@ namespace VS_SQL_TextSchemeMigrator
         }
 
         private void StartImportProcess(VisualStudioVersion vsVersion, SqlStudioVersion sqlVersion)
-        { 
-            
+        {
+            lblProcessingStatus.Visible = true;
+            this.Enabled = false;
+            var importer = new ThemeImporter();
+            importer.CopyVSToSql(vsVersion, sqlVersion);
+            lblProcessingStatus.Visible = false;
+            this.Enabled = true;
+            MessageBox.Show("The process is done.");
         }
 
         private void StartImportProcess(SqlStudioVersion sqlSource, SqlStudioVersion sqlDestination)
-        { }
+        {
+            lblProcessingStatus.Visible = true;
+            this.Enabled = false;
+            var importer = new ThemeImporter();
+            importer.CopySqlToSql(sqlSource, sqlDestination);
+            lblProcessingStatus.Visible = false;
+            this.Enabled = true;
+            MessageBox.Show("The process is done.");
+        }
     }
 }
