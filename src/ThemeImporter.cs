@@ -29,6 +29,11 @@ namespace VS_SQL_TextSchemeMigrator
             _versionStrings.Add("SQL2008", "100");
         }
 
+        /// <summary>
+        /// Copies settings from a Visual Studio installation to Sql Server Management Studio.
+        /// </summary>
+        /// <param name="vsVersion">Represents the version of Visual Studio from which we will read the settings.</param>
+        /// <param name="sqlVersion">Represents the version of SSMS which will receive the settings.</param>
         public void CopyVSToSql(VisualStudioVersion vsVersion, SqlStudioVersion sqlVersion)
         {
             string vsRegKeyPath = string.Format(_vsRegKeyFormat, _versionStrings[Enum.GetName(typeof(VisualStudioVersion), vsVersion)]);
@@ -37,6 +42,11 @@ namespace VS_SQL_TextSchemeMigrator
             Copy(vsRegKeyPath, sqlRegKeyPath);
         }
 
+        /// <summary>
+        /// Copies settings between different versions of Sql Server Management Studio.
+        /// </summary>
+        /// <param name="sqlVersionSource">Represents the version of SSMS from which we will read the settings.</param>
+        /// <param name="sqlVersionDestination">Represents the version of SSMS which will receive the settings.</param>
         public void CopySqlToSql(SqlStudioVersion sqlVersionSource, SqlStudioVersion sqlVersionDestination)
         {
             string sqlRegKeyPathSource = string.Format(_vsRegKeyFormat, _versionStrings[Enum.GetName(typeof(VisualStudioVersion), sqlVersionSource)]);
@@ -45,6 +55,9 @@ namespace VS_SQL_TextSchemeMigrator
             Copy(sqlRegKeyPathSource, sqlRegKeyPathDestination);
         }
 
+        /// <summary>
+        /// Populates the DataDictionary object that contains mapping information between registry keys.
+        /// </summary>
         private void CreateMappingsFromSqlToSql()
         {
             _map = new Dictionary<string, string>();
@@ -165,6 +178,9 @@ namespace VS_SQL_TextSchemeMigrator
             _map.Add("XML Tag Delimiter FontFlags", "XML Tag Delimiter FontFlags");
         }
 
+        /// <summary>
+        /// Populates the DataDictionary object that contains mapping information between registry keys.
+        /// </summary>
         private void CreateMappingsFromVisualStudioToSql()
         {
             _map = new Dictionary<string, string>();
@@ -256,6 +272,11 @@ namespace VS_SQL_TextSchemeMigrator
             _ignorePrefixes = new string[] { "CSS ", "Disassembly ", "HTML ", "Refactoring ", "XML Doc " };
         }
 
+        /// <summary>
+        /// Copies the values defined in the DataDictionary. 
+        /// </summary>
+        /// <param name="sourcePath">Registry path to the source registry key.</param>
+        /// <param name="destinationPath">Registry path to the destination registry key.</param>
         private void Copy(string sourcePath, string destinationPath)
         {
             RegistryKey sourceKey = Registry.CurrentUser.OpenSubKey(sourcePath);
@@ -275,6 +296,11 @@ namespace VS_SQL_TextSchemeMigrator
             }
         }
 
+        /// <summary>
+        /// Checks if the value is part of the "ignore list".
+        /// </summary>
+        /// <param name="valueName">Value to check.</param>
+        /// <returns>True if it should be ignored, false otherwise.</returns>
         private bool IsIgnoredValue(string valueName)
         {
             foreach (string prefix in _ignorePrefixes)
