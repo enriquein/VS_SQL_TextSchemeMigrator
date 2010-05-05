@@ -121,5 +121,10 @@ namespace VS_SQL_TextSchemeMigrator
             this.Enabled = true;
             MessageBox.Show("The process is done.");
         }
+
+        private void On_btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

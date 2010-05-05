@@ -11,8 +11,8 @@ namespace VS_SQL_TextSchemeMigrator
     /// </summary>
     public class ThemeImporter
     {
-        private string _vsRegKeyFormat = "Software\\Microsoft\\VisualStudio\\{0}\\FontAndColors\\{A27B4E24-A735-4D1D-B8E7-9716E1E3D8E0}";
-        private string _sqlRegKeyFormat = "Software\\Microsoft\\Microsoft SQL Server\\{0}\\Tools\\Shell\\FontAndColors\\{A27B4E24-A735-4D1D-B8E7-9716E1E3D8E0}";
+        private string _vsRegKeyFormat = "Software\\Microsoft\\VisualStudio\\{0}\\FontAndColors\\{{A27B4E24-A735-4D1D-B8E7-9716E1E3D8E0}}";
+        private string _sqlRegKeyFormat = "Software\\Microsoft\\Microsoft SQL Server\\{0}\\Tools\\Shell\\FontAndColors\\{{A27B4E24-A735-4D1D-B8E7-9716E1E3D8E0}}";
 
         private IDictionary<string, string> _versionStrings;
         private IDictionary<string, string> _map;
@@ -23,10 +23,10 @@ namespace VS_SQL_TextSchemeMigrator
             _ignorePrefixes = new string[0];
 
             _versionStrings = new Dictionary<string, string>(4);
-            _versionStrings.Add("VS2005", "80");
-            _versionStrings.Add("VS2008", "90");
-            _versionStrings.Add("SQL2005", "90");
-            _versionStrings.Add("SQL2008", "100");
+            _versionStrings.Add("VS2005", "8.0");
+            _versionStrings.Add("VS2008", "9.0");
+            _versionStrings.Add("SSMS2005", "90");
+            _versionStrings.Add("SSMS2008", "100");
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace VS_SQL_TextSchemeMigrator
         /// <param name="sqlVersionDestination">Represents the version of SSMS which will receive the settings.</param>
         public void CopySqlToSql(SqlStudioVersion sqlVersionSource, SqlStudioVersion sqlVersionDestination)
         {
-            string sqlRegKeyPathSource = string.Format(_vsRegKeyFormat, _versionStrings[Enum.GetName(typeof(VisualStudioVersion), sqlVersionSource)]);
+            string sqlRegKeyPathSource = string.Format(_sqlRegKeyFormat, _versionStrings[Enum.GetName(typeof(SqlStudioVersion), sqlVersionSource)]);
             string sqlRegKeyPathDestination = string.Format(_sqlRegKeyFormat, _versionStrings[Enum.GetName(typeof(SqlStudioVersion), sqlVersionDestination)]);
             CreateMappingsFromSqlToSql();
             Copy(sqlRegKeyPathSource, sqlRegKeyPathDestination);

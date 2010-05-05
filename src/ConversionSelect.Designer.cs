@@ -81,6 +81,7 @@
             // 
             // cbxTo
             // 
+            this.cbxTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTo.FormattingEnabled = true;
             this.cbxTo.Location = new System.Drawing.Point(45, 42);
             this.cbxTo.Name = "cbxTo";
@@ -98,6 +99,7 @@
             // 
             // cbxFrom
             // 
+            this.cbxFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxFrom.FormattingEnabled = true;
             this.cbxFrom.Location = new System.Drawing.Point(45, 13);
             this.cbxFrom.Name = "cbxFrom";
@@ -131,6 +133,7 @@
             this.btnClose.TabIndex = 4;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.On_btnClose_Click);
             // 
             // lblProcessingStatus
             // 
