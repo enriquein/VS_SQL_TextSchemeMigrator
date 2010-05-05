@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 
-namespace VS_SQL_FontThemeMigrator
+namespace VS_SQL_TextSchemeMigrator
 {
     class Program
     {

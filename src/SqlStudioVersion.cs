@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace VS_SQL_FontThemeMigrator
+namespace VS_SQL_TextSchemeMigrator
 {
     public enum SqlStudioVersion
     {

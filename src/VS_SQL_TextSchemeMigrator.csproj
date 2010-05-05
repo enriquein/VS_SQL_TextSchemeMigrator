@@ -7,14 +7,14 @@
     <ProjectGuid>{8EC3CDE7-86EF-4251-9C94-817F355BE606}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VS_SQL_FontThemeMigrator</RootNamespace>
-    <AssemblyName>VS_SQL_FontThemeMigrator</AssemblyName>
+    <RootNamespace>VS_SQL_TextSchemeMigrator</RootNamespace>
+    <AssemblyName>VS_SQL_TextSchemeMigrator</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <StartupObject>VS_SQL_FontThemeMigrator.Program</StartupObject>
+    <StartupObject>VS_SQL_TextSchemeMigrator.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

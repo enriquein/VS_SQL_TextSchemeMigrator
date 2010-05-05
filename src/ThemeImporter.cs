@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Win32;
 
-namespace VS_SQL_FontThemeMigrator
+namespace VS_SQL_TextSchemeMigrator
 {
     /// <summary>
     /// This class was based on VSColorsToSQL by Tomas Restrepo (tomas@winterdom.com)
