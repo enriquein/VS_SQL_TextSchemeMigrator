@@ -10,8 +10,8 @@ namespace VS_SQL_TextSchemeMigrator
     /// </summary>
     public class ThemeImporter
     {
-        private string VSRegKeyFormat = "Software\\Microsoft\\VisualStudio\\{0}\\FontAndColors\\{A27B4E24-A735-4D1D-B8E7-9716E1E3D8E0}";
-        private string SqlRegKeyFormat = "Software\\Microsoft\\Microsoft SQL Server\\{0}\\Tools\\Shell\\FontAndColors\\{A27B4E24-A735-4D1D-B8E7-9716E1E3D8E0}";
+        private string _VSRegKeyFormat = "Software\\Microsoft\\VisualStudio\\{0}\\FontAndColors\\{A27B4E24-A735-4D1D-B8E7-9716E1E3D8E0}";
+        private string _SqlRegKeyFormat = "Software\\Microsoft\\Microsoft SQL Server\\{0}\\Tools\\Shell\\FontAndColors\\{A27B4E24-A735-4D1D-B8E7-9716E1E3D8E0}";
 
         private IDictionary<string, string> _versionStrings;
         private IDictionary<string, string> _map;
@@ -30,10 +30,19 @@ namespace VS_SQL_TextSchemeMigrator
 
         public void CopyVSToSql(VisualStudioVersion vsVersion, SqlStudioVersion sqlVersion)
         {
+            string vsRegKeyPath = string.Format(_VSRegKeyFormat, _versionStrings[Enum.GetName(typeof(VisualStudioVersion), vsVersion)]);
+            string sqlRegKeyPath = string.Format(_SqlRegKeyFormat, _versionStrings[Enum.GetName(typeof(SqlStudioVersion), sqlVersion)]);
+            CreateMappingsFromVisualStudioToSql();
+            Copy(vsRegKeyPath, sqlRegKeyPath);
         }
 
         public void CopySqlToSql(SqlStudioVersion sqlVersionSource, SqlStudioVersion sqlVersionDestination)
-        { }
+        {
+            string sqlRegKeyPathSource = string.Format(_VSRegKeyFormat, _versionStrings[Enum.GetName(typeof(VisualStudioVersion), sqlVersionSource)]);
+            string sqlRegKeyPathDestination = string.Format(_SqlRegKeyFormat, _versionStrings[Enum.GetName(typeof(SqlStudioVersion), sqlVersionDestination)]);
+            CreateMappingsFromSqlToSql();
+            Copy(sqlRegKeyPathSource, sqlRegKeyPathDestination);
+        }
 
         private void CreateMappingsFromSqlToSql()
         {
@@ -247,7 +256,7 @@ namespace VS_SQL_TextSchemeMigrator
             _ignorePrefixes = new string[] { "CSS ", "Disassembly ", "HTML ", "Refactoring ", "XML Doc " };
         }
 
-        private void Copy(string sourcePath, string destinationPath, IDictionary<string, string> ValueMap)
+        private void Copy(string sourcePath, string destinationPath)
         {
             RegistryKey sourceKey = Registry.CurrentUser.OpenSubKey(sourcePath);
             RegistryKey destinationKey = Registry.CurrentUser.OpenSubKey(destinationPath, true);
