@@ -47,7 +47,7 @@
             this.optSqlToSql.Location = new System.Drawing.Point(12, 35);
             this.optSqlToSql.Name = "optSqlToSql";
             this.optSqlToSql.Size = new System.Drawing.Size(358, 17);
-            this.optSqlToSql.TabIndex = 0;
+            this.optSqlToSql.TabIndex = 1;
             this.optSqlToSql.TabStop = true;
             this.optSqlToSql.Text = "Copy between two different versions of Sql Server Management Studio";
             this.optSqlToSql.UseVisualStyleBackColor = true;
@@ -59,7 +59,7 @@
             this.optVStoSql.Location = new System.Drawing.Point(12, 12);
             this.optVStoSql.Name = "optVStoSql";
             this.optVStoSql.Size = new System.Drawing.Size(298, 17);
-            this.optVStoSql.TabIndex = 1;
+            this.optVStoSql.TabIndex = 0;
             this.optVStoSql.TabStop = true;
             this.optVStoSql.Text = "Copy from Visual Studio to Sql Server Management Studio";
             this.optVStoSql.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             this.cbxTo.Location = new System.Drawing.Point(45, 42);
             this.cbxTo.Name = "cbxTo";
             this.cbxTo.Size = new System.Drawing.Size(144, 21);
-            this.cbxTo.TabIndex = 4;
+            this.cbxTo.TabIndex = 3;
             // 
             // label1
             // 
@@ -104,7 +104,7 @@
             this.cbxFrom.Location = new System.Drawing.Point(45, 13);
             this.cbxFrom.Name = "cbxFrom";
             this.cbxFrom.Size = new System.Drawing.Size(144, 21);
-            this.cbxFrom.TabIndex = 3;
+            this.cbxFrom.TabIndex = 2;
             // 
             // label2
             // 
@@ -120,7 +120,7 @@
             this.btnCopySettings.Location = new System.Drawing.Point(248, 78);
             this.btnCopySettings.Name = "btnCopySettings";
             this.btnCopySettings.Size = new System.Drawing.Size(91, 23);
-            this.btnCopySettings.TabIndex = 3;
+            this.btnCopySettings.TabIndex = 4;
             this.btnCopySettings.Text = "Copy Settings";
             this.btnCopySettings.UseVisualStyleBackColor = true;
             this.btnCopySettings.Click += new System.EventHandler(this.On_btnCopySettings_Click);
@@ -130,7 +130,7 @@
             this.btnClose.Location = new System.Drawing.Point(248, 107);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(91, 23);
-            this.btnClose.TabIndex = 4;
+            this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.On_btnClose_Click);
