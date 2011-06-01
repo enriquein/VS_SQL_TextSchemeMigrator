@@ -7,7 +7,7 @@ namespace VS_SQL_TextSchemeMigrator
 {
     /// <summary>
     /// Provides the mechanism to copy Text Editor color/font schemes from one application to another.
-    /// This class was based on VSColorsToSQL by Tomas Restrepo (tomas@winterdom.com)
+    /// This class was based on VSColorsToSQL by Tomas Restrepo (tomas@winterdom.com) ( https://github.com/tomasr/VSColorsToSQL )
     /// </summary>
     public class ThemeImporter
     {
