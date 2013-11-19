@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using Microsoft.Win32;
+using System.Linq;
 
 namespace VS_SQL_TextSchemeMigrator
 {
@@ -303,12 +303,7 @@ namespace VS_SQL_TextSchemeMigrator
         /// <returns>True if it should be ignored, false otherwise.</returns>
         private bool IsIgnoredValue(string valueName)
         {
-            foreach (string prefix in _ignorePrefixes)
-            {
-                if (valueName.StartsWith(prefix))
-                    return true;
-            }
-            return false;
+            return _ignorePrefixes.Any(prefix => valueName.StartsWith(prefix));
         }
     }
 }
